@@ -1,6 +1,6 @@
 # rest-loadtest
 
-Testing how web browsers respond to extreme network volume over time.
+Testing how web browsers respond to executing a large volume of REST requests over time.
 
 To run, execute:
 
