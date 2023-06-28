@@ -5,14 +5,18 @@ function createRequest() {
     const xhr = new XMLHttpRequest();
   
     // Setup our listener to process request state changes
-    xhr.onreadystatechange = function () {
+    xhr.onreadystatechange = () => {
       if(xhr.readyState === 4) {
-        resolve();
+        resolve(xhr.responseText);
       }
     };
   
     // Send request
-    xhr.open('GET', 'http://localhost:8000');
+    const params = new URLSearchParams({
+      start: new Date().toISOString(),
+      stop: new Date(Date.now() - 10 * 60000).toISOString()
+    });
+    xhr.open('GET', `http://localhost:8000/?${params.toString()}`);
     xhr.send();
   })
 }

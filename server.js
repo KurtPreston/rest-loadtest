@@ -7,7 +7,7 @@ const requestListener = function (req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Content-Type', 'application/json');
   res.writeHead(200);
-  res.end(JSON.stringify({message: 'text'}));
+  res.end(JSON.stringify({received: Date.now()}));
 };
 
 const server = http.createServer(requestListener);
